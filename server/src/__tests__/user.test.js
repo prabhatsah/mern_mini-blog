@@ -14,6 +14,12 @@ jest.mock("../middleware/authMiddleware", () => {
 });
 
 jest.mock("../model/UserSchema");
+jest.mock("bcryptjs", () => ({
+  compare: jest.fn(() => true),
+}));
+jest.mock("jsonwebtoken", () => ({
+  sign: jest.fn(() => "fake-token"),
+}));
 
 describe("User APIs", () => {
   beforeEach(() => {

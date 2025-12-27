@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Getting Started with React and TypeScript",
+    "excerpt": "Learn how to set up a modern React application with TypeScript and best practices for type safety.",
+    "content": "TypeScript has become an essential tool for building robust React applications. In this guide, we'll explore how to leverage TypeScript's powerful type system to catch errors early and improve your development experience. We'll cover component typing, props interfaces, and common patterns that will make your code more maintainable and scalable.",
+    "author": "Sarah Johnson",
+    "date": "2024-03-15",
+    "category": "Development",
+    "readTime": "5 min read",
+    "image": "https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+  {
+    "id": 2,
+    "title": "Mastering Tailwind CSS: Tips and Tricks",
+    "excerpt": "Discover advanced techniques and best practices for building beautiful UIs with Tailwind CSS.",
+    "content": "Tailwind CSS has revolutionized the way we write CSS in modern web applications. This utility-first framework allows developers to build custom designs without leaving their HTML. In this article, we'll dive into advanced patterns, custom configurations, and performance optimization techniques that will take your Tailwind skills to the next level.",
+    "author": "Michael Chen",
+    "date": "2024-03-12",
+    "category": "Design",
+    "readTime": "7 min read",
+    "image": "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+  {
+    "id": 3,
+    "title": "Building Scalable Web Applications",
+    "excerpt": "A comprehensive guide to architecting applications that can grow with your business needs.",
+    "content": "Scalability is a critical concern for any modern web application. As your user base grows, your application needs to handle increased traffic, data, and complexity. In this comprehensive guide, we'll explore architectural patterns, database optimization strategies, and infrastructure considerations that will help you build applications ready for growth.",
+    "author": "Emily Rodriguez",
+    "date": "2024-03-10",
+    "category": "Architecture",
+    "readTime": "10 min read",
+    "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+  {
+    "id": 4,
+    "title": "The Future of Web Development in 2024",
+    "excerpt": "Exploring emerging trends and technologies shaping the future of web development.",
+    "content": "The web development landscape is constantly evolving, with new frameworks, tools, and methodologies emerging every year. As we progress through 2024, several key trends are shaping the future of how we build for the web. From AI-powered development tools to edge computing and advanced progressive web apps, the future is incredibly exciting.",
+    "author": "David Park",
+    "date": "2024-03-08",
+    "category": "Trends",
+    "readTime": "8 min read",
+    "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+  {
+    "id": 5,
+    "title": "Optimizing React Performance",
+    "excerpt": "Learn essential techniques to make your React applications faster and more efficient.",
+    "content": "Performance optimization is crucial for delivering excellent user experiences. React provides several built-in tools and patterns for optimizing your applications, from memoization to code splitting. In this article, we'll explore practical techniques you can implement today to significantly improve your React application's performance and user experience.",
+    "author": "Lisa Anderson",
+    "date": "2024-03-05",
+    "category": "Performance",
+    "readTime": "6 min read",
+    "image": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+  {
+    "id": 6,
+    "title": "Understanding Modern CSS Grid",
+    "excerpt": "Master CSS Grid Layout with practical examples and real-world use cases.",
+    "content": "CSS Grid has transformed how we create layouts on the web, offering unprecedented control over both dimensions simultaneously. Unlike older layout methods, Grid allows us to create complex, responsive designs with clean, maintainable code. This guide will walk you through the fundamentals and advanced techniques of CSS Grid with practical examples.",
+    "author": "James Wilson",
+    "date": "2024-03-01",
+    "category": "CSS",
+    "readTime": "9 min read",
+    "image": "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  }
+]

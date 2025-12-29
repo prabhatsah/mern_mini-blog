@@ -4,7 +4,7 @@ require("dotenv");
 async function authMiddleware(req, res, next) {
   try {
     const authHeader = req.headers.authorization;
-    console.log("Middleware triggered, token:", authHeader);
+    console.log("Middleware triggered, token: ", authHeader);
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return res.status(401).json({

@@ -7,12 +7,11 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 app.use(express.json());
-app.use(cookieParser());
+// app.use(cookieParser());
 
 var corsOptions = {
-  // origin: "https://collabx-mini-blog-8y3sza9v0-prabhat-kumars-projects-7e9f524e.vercel.app",
-  origin: "http://localhost:5173",
-  // origin: "https://collabx-mini-blog.vercel.app",
+  // origin: "http://localhost:5173",
+  origin: ["http://localhost:5173", "http://mern-mini-blog-client.s3-website.ap-south-1.amazonaws.com"],
   credentials: true,
 };
 app.use(cors(corsOptions));

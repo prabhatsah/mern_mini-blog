@@ -27,7 +27,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const user = await axios(`${apiUrl}/api/v1/user/me`, { withCredentials: true });
+        const access_token = localStorage.getItem("access_token");
+        const user = await axios(`${apiUrl}/api/v1/user/me`, {
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
+        });
         setUser(user.data.data);
       } catch (error) {
         setUser(null);
@@ -52,7 +57,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signIn = async (email: string, password: string) => {
     try {
-      await axios({
+      const res = await axios({
         method: "post",
         url: `${apiUrl}/api/v1/user/login`,
         data: {
@@ -61,11 +66,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         },
         withCredentials: true,
       });
+      console.log(res.data);
 
       toast.success("Login success");
 
-      const userRes = await axios.get(`${apiUrl}/api/v1/user/me`, { withCredentials: true });
-      setUser(userRes.data.data);
+      localStorage.setItem("access_token", res.data.access_token);
+
+      setUser(res.data.user);
     } catch (error) {
       console.log("Error:", error);
       toast.error(error?.response?.data?.message);

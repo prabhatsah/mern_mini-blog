@@ -22,7 +22,15 @@ export default function MyBlogs({ onSelectPost, refreshTrigger }: MyBlogsProps) 
   const fetchMyPosts = async () => {
     setLoading(true);
     try {
-      const { data } = await axios({ method: "get", url: `${apiUrl}/api/v1/blog`, withCredentials: true });
+      const access_token = localStorage.getItem("access_token");
+
+      const { data } = await axios({
+        method: "get",
+        url: `${apiUrl}/api/v1/blog`,
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
 
       setMyPosts(data.data || []);
     } catch (err) {

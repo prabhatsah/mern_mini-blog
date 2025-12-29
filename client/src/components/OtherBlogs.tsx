@@ -22,7 +22,13 @@ export default function OtherBlogs({ onSelectPost, searchQuery, selectedCategory
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const { data } = await axios.get(`${apiUrl}/api/v1/blog/other`, { withCredentials: true });
+        const access_token = localStorage.getItem("access_token");
+
+        const { data } = await axios.get(`${apiUrl}/api/v1/blog/other`, {
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
+        });
 
         setPosts(data.data || []);
       } catch (err) {

@@ -2,17 +2,28 @@ const jwt = require("jsonwebtoken");
 require("dotenv");
 
 async function authMiddleware(req, res, next) {
-  const token = req.cookies.access_token;
+  try {
+    const authHeader = req.headers.authorization;
+    console.log("Middleware triggered, token:", authHeader);
 
-  console.log("Middleware triggered, token:", token);
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({
+        message: "Unauthorized",
+      });
+    }
 
-  if (!token) return res.status(400).json({ message: "Invalid user" });
+    const token = authHeader.split(" ")[1];
 
-  const user = await jwt.verify(token, process.env.JWT_SECRET);
+    const user = jwt.verify(token, process.env.JWT_SECRET);
 
-  req.user = user;
+    req.user = user;
+    next();
+  } catch (error) {
+    console.log("Error in auth middleware");
+    console.log(error);
 
-  next();
+    res.status(401).json({ message: "Invalid or expired token" });
+  }
 }
 
 module.exports = authMiddleware;

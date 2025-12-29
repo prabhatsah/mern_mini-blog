@@ -43,6 +43,8 @@ export default function CreateBlogModal({ onClose, onSuccess }: CreateBlogModalP
       const contentWords = formData.content.split(/\s+/).length;
       const readTime = Math.max(1, Math.ceil(contentWords / 200));
 
+      const access_token = localStorage.getItem("access_token");
+
       await axios.post(
         `${apiUrl}/api/v1/blog`,
         {
@@ -54,7 +56,10 @@ export default function CreateBlogModal({ onClose, onSuccess }: CreateBlogModalP
           read_time: readTime,
         },
         {
-          withCredentials: true, // 👈 include cookie
+          // withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
         }
       );
 

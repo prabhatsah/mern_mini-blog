@@ -12,16 +12,18 @@ async function login(req, res) {
   if (!email || !password) return res.status(400).json({ message: "All fields are mendatory", success: false });
 
   const user = await User.findOne({ email });
+
   if (!user) return res.status(400).json({ message: "Invalid credentials", success: false });
 
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) return res.status(400).json({ message: "Invalid credentials", success: false });
+  if (!bcrypt.compare(password + "", user.password)) return res.status(400).json({ message: "Invalid credentials", success: false });
 
   const payload = { _id: user._id, name: user.name, email: user.email };
+  const access_token = await jwt.sign(payload, process.env.JWT_SECRET);
 
-  const access_token = jwt.sign(payload, process.env.JWT_SECRET);
-
-  return res.status(200).json({ access_token, success: true, user: payload });
+  return res
+    .cookie("access_token", access_token, { httpOnly: true, secure: true, sameSite: "None" })
+    .status(200)
+    .json({ access_token, success: true });
 }
 
 async function register(req, res) {
